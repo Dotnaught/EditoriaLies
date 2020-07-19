@@ -1,0 +1,23 @@
+{
+  "name": "Bloom Broom",
+  "version": "1.0",
+  "description": "Automatically removes cookies and tracking data deposited by Bloomberg.com.",
+  "permissions": ["*://*.bloomberg.com/*", "browsingData", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.bloomberg.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "icons": {
+    "16": "images/bb16.png",
+    "32": "images/bb32.png",
+    "48": "images/bb48.png",
+    "128": "images/bb128.png"
+  },
+  "manifest_version": 2
+}
