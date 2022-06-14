@@ -1,23 +1,21 @@
 {
-  "name": "Bloom Broom",
+  "name": "EditoriaLies",
+  "description": "Change webste text.",
   "version": "1.0",
-  "description": "Automatically removes cookies and tracking data deposited by Bloomberg.com.",
-  "permissions": ["*://*.bloomberg.com/*", "browsingData", "storage"],
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Input text",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["scripting", "tabs", "activeTab", "storage"],
+  "host_permissions": ["https://*/*"],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["*://*.bloomberg.com/*"],
-      "js": ["contentScript.js"]
-    }
-  ],
   "icons": {
-    "16": "images/bb16.png",
-    "32": "images/bb32.png",
-    "48": "images/bb48.png",
-    "128": "images/bb128.png"
-  },
-  "manifest_version": 2
+    "16": "images/el16.png",
+    "32": "images/el32.png",
+    "48": "images/el48.png",
+    "128": "images/el128.png"
+  }
 }

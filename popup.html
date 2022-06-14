@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+ 
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Popup</title>
+
+  </head>
+  <body>
+        <form id="myForm">
+            <label for="input">Find this text:</label>
+            <textarea type="text" title="Input" id="input" name="input" rows="3" cols="20"></textarea>
+
+            <span class="validity"></span>
+            <div>
+                <label for="epithet">Replace text above with:</label>
+                <textarea type="text" title="Epithet" id="epithet" name="epithet" rows="3" cols="20"></textarea>
+            </div>
+            
+            <span>
+            <button id="submit" class="button-53" type="button" title="Editorialize">Editorialize</button>
+            </span>
+            <span>
+            <button id="clear" class="button-52" type="button" title="Clear">Clear</button> 
+            </span>
+            
+            
+    </form>
+    <script src="popup.js" defer></script>
+  </body>
+</html>
