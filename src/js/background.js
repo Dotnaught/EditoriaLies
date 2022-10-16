@@ -5,21 +5,21 @@ chrome.runtime.onInstalled.addListener((r) => {
 });
 
 function showReadme() {
-  let url = chrome.runtime.getURL("onboarding-page.html");
+  let url = chrome.runtime.getURL("html/onboarding-page.html");
   chrome.tabs.create({ url });
 }
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-  if (changeInfo.status === "complete") {
+  if (changeInfo.status === "complete" && !tab.url.includes("chrome://")) {
     chrome.scripting.executeScript(
       {
         target: { tabId: tabId },
-        files: ["content-script.js"],
+        files: ["js/content-script.js"],
       },
       async () => {
         try {
           //callback
-          //console.log("content-script.js executed");
+          console.log("content-script.js executed");
           chrome.runtime.lastError;
           chrome.storage.sync.get("options", (data) => {
             if (Object.keys(data).length !== 0) {

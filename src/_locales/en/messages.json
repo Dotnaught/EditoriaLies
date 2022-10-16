@@ -1,0 +1,51 @@
+{
+    "extName": {
+      "message": "EditoriaLies"
+    },
+    "extDesc": {
+      "message": "Replace specified words with chosen epithets."
+    },
+    "ext_default_title": {
+      "message": "EditoriaLies"
+    },
+    "input_defaultTitle": {
+      "message": "Input Text"
+    },
+    "onboarding_title": {
+      "message": "EditoriaLies Onboarding Page"
+    },
+      "h2_heading": {
+        "message": "EditoriaLies"
+      },
+      "div_explanation": {
+        "message": "An extension for Google Chrome that allows you to edit the text of a webpage. Because sometimes you know better."
+      },
+      "li1": {
+        "message": "Pin the extension so it's always visible."
+      },
+      "li2": {
+        "message": "Select text on the active tab to replace."
+      },
+      "li3": {
+        "message": "Click on the extension icon in the toolbar to open the popup menu."
+      },
+  
+      "li4": {
+        "message": "Selected text will appear in the popup window's \"Find this text:\" field."
+      },
+      "li5": {
+        "message": "If no text was selected, enter the text you want to replace in the \"Find this text:\" field."
+      },
+      "li6": {
+        "message": "Then enter the replacement text in the \"Replace text abve with\" field."
+      },
+      "li7": {
+        "message": "Click on the \"Editorialize\" button."
+      },
+      "li8": {
+        "message": "The active tab will reload and revise the webpage as indicated."
+      },
+      "li9": {
+        "message": "This should work on most news websites, and probably won't on social media sites that obfuscate their structure."
+      }
+}
