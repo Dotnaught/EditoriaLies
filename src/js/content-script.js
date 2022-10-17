@@ -2,17 +2,15 @@ console.log("content-script.js loaded");
 
 if (typeof init === "undefined") {
   const init = async (options) => {
-    //var el = document.querySelector("body");
-    //var elements = document.body.getElementsByTagName("*"); //HTMLCollection
-    //var elements = document.querySelectorAll("*"); //NodeList, static
+    var re = new RegExp(`${options.input}`, "g");
+    var modifiedText = options.epithet;
+
     // create a TreeWalker of all text nodes
-    var allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT),
-      // some temp references for performance
-      tmptxt,
-      tmpnode,
-      // compile the RE and cache the replace string, for performance
-      re = new RegExp(`${options.input}`, "g"),
-      modifiedText = options.epithet;
+
+    var allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    var tmptxt;
+    var tmpnode;
+
     if (modifiedText != "") {
       // iterate through all text nodes
       while (allTextNodes.nextNode()) {
@@ -21,42 +19,41 @@ if (typeof init === "undefined") {
         tmpnode.nodeValue = tmptxt.replace(re, modifiedText);
       }
     }
-    /*
-    for (let i = 0; i < elements.length; i++) {
-      var e = elements[i];
-      for (let j = 0; j < e.childNodes.length; j++) {
-        var node = e.childNodes[j];
 
-        if (node.nodeType === 3) {
-          //&& checkParent(el, node)
-          var text = node.nodeValue; //textContent
-          console.log(text);
+    //mutation observer
+    var observer = new MutationObserver(onMutation);
+    observer.observe(document, {
+      childList: true, // report added/removed nodes
+      subtree: true, // observe any descendant elements
+    });
 
-          var re = new RegExp(`${options.input}`, "g");
-
-          var modifiedText = options.epithet;
-
-          var replacedText = text.replace(re, modifiedText);
-          if (replacedText !== text) {
-            e.replaceChild(document.createTextNode(replacedText), node);
-          }
-        } else if (node.nodeType === 1) {
-          if (node instanceof HTMLSpanElement) {
-            //console.log(`Value of ${node.nodeName}: ${node.nodeValue}<br/>`);
-            //console.log(`${node.innerHTML}<br/>`);
+    function onMutation(mutations) {
+      console.log("mutation observed");
+      for (var i = 0, len = mutations.length; i < len; i++) {
+        var added = mutations[i].addedNodes;
+        if (added.length) {
+          for (var j = 0, node; (node = added[j]); j++) {
+            if (re.test(node.textContent)) {
+              console.log(`found: ${node}`);
+              replaceText(node);
+            }
           }
         }
       }
-    }*/
-  };
-
-  function checkParent(parent, child) {
-    if (parent.contains(child)) {
-      return true;
-    } else {
-      return false;
     }
-  }
+    //mutation walker
+    function replaceText(el) {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      var tnode, ttext;
+      //for (let node; (node = walker.nextNode()); ) {
+      while (walker.nextNode()) {
+        tnode = walker.currentNode;
+        ttext = tnode.nodeValue;
+        tnode.nodeValue = ttext.replace(re, modifiedText);
+      }
+    }
+    //
+  };
 
   chrome.storage.sync.get("options", (data) => {
     if (Object.keys(data).length === 0) {
