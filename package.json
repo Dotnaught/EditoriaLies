@@ -1,0 +1,19 @@
+{
+  "name": "editorialies",
+  "version": "1.0.0",
+  "description": "A Chrome extension for replacing specified words with chosen epithets",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "zip -r dist/$npm_package_name-$npm_package_version.zip src -x *.DS_Store* *.git*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dotnaught/EditoriaLies.git"
+  },
+  "author": "Thomas Claburn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dotnaught/EditoriaLies/issues"
+  },
+  "homepage": "https://github.com/Dotnaught/EditoriaLies#readme"
+}
