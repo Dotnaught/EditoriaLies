@@ -1,4 +1,4 @@
-console.log("content-script.js loaded");
+//console.log("content-script.js loaded");
 
 if (typeof init === "undefined") {
   const init = async (options) => {
@@ -28,13 +28,13 @@ if (typeof init === "undefined") {
     });
 
     function onMutation(mutations) {
-      console.log("mutation observed");
+      //console.log("mutation observed");
       for (var i = 0, len = mutations.length; i < len; i++) {
         var added = mutations[i].addedNodes;
         if (added.length) {
           for (var j = 0, node; (node = added[j]); j++) {
             if (re.test(node.textContent)) {
-              console.log(`found: ${node}`);
+              //console.log(`found: ${node}`);
               replaceText(node);
             }
           }
@@ -58,7 +58,7 @@ if (typeof init === "undefined") {
   chrome.storage.sync.get("options", (data) => {
     if (Object.keys(data).length === 0) {
       data.options = { input: "", epithet: "" };
-      console.log("no options found, initializing");
+      //console.log("no options found, initializing");
     }
 
     if (data.options.input !== "") {
@@ -66,6 +66,4 @@ if (typeof init === "undefined") {
       init(data.options);
     }
   });
-} else {
-  console.log("init already defined");
 }

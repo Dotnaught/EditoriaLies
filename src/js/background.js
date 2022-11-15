@@ -19,8 +19,9 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       async () => {
         try {
           //callback
-          console.log("content-script.js executed");
-          chrome.runtime.lastError;
+          if (chrome.runtime.lastError) {
+            console.log(chrome.runtime.lastError.message);
+          }
           chrome.storage.sync.get("options", (data) => {
             if (Object.keys(data).length !== 0) {
               let textBadge = data.options.input;
@@ -39,8 +40,11 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 });
 
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
-  //console.log("tab activated", activeInfo.tabId);
-  setBadgeText("");
+  try {
+    setBadgeText("");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 async function getTab() {
@@ -82,9 +86,13 @@ async function reload() {
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message === "clear") {
-    setBadgeText("");
-    reload();
-    sendResponse({ clear: "done" });
+    try {
+      setBadgeText("");
+      reload();
+      sendResponse({ clear: "done" });
+    } catch (error) {
+      console.log(error);
+    }
+    return true;
   }
-  return true;
 });

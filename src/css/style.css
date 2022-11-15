@@ -14,7 +14,7 @@ div {
 
     
     /* CSS */
-    .button-53 {
+    .submitButton {
       background-color: #3DD1E7;
       border: 0 solid #E5E7EB;
       box-sizing: border-box;
@@ -29,7 +29,6 @@ div {
       position: relative;
       text-align: center;
       text-decoration: none #000000 solid;
-      text-decoration-thickness: auto;
       width: 100%;
       max-width: 460px;
       position: relative;
@@ -40,11 +39,11 @@ div {
       touch-action: manipulation;
     }
     
-    .button-53:focus {
+    .submitButton:focus {
       outline: 0;
     }
     
-    .button-53:after {
+    .submitButton:after {
       content: '';
       position: absolute;
       border: 1px solid #000000;
@@ -54,19 +53,19 @@ div {
       height: calc(100% - 1px);
     }
     
-    .button-53:hover:after {
+    .submitButton:hover:after {
       bottom: 2px;
       left: 2px;
     }
     
     @media (min-width: 768px) {
-      .button-53 {
+      .submitButton {
         padding: .75rem 3rem;
         font-size: 1.25rem;
       }
     }
 
-.button-52 {
+.clearButton {
   font-size: 16px;
   font-weight: 200;
   letter-spacing: 1px;
@@ -81,7 +80,7 @@ div {
   touch-action: manipulation;
 }
 
-.button-52:after {
+.clearButton:after {
   content: "";
   background-color: #ffe54c;
   width: 100%;
@@ -93,13 +92,13 @@ div {
   transition: 0.2s;
 }
 
-.button-52:hover:after {
+.clearButton:hover:after {
   top: 0px;
   left: 0px;
 }
 
 @media (min-width: 768px) {
-  .button-52 {
+  .clearButton {
     padding: 13px 50px 13px;
   }
 }

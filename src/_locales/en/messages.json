@@ -3,7 +3,7 @@
       "message": "EditoriaLies"
     },
     "extDesc": {
-      "message": "Replace specified words with chosen epithets."
+      "message": "A Chrome extension for replacing specified words with chosen epithets."
     },
     "ext_default_title": {
       "message": "EditoriaLies"
@@ -47,5 +47,17 @@
       },
       "li9": {
         "message": "This should work on most news websites, and probably won't on social media sites that obfuscate their structure."
+      },
+      "findThisText": {
+        "message": "Find this text:"
+      },
+      "replaceThisText": {
+        "message": "Replace text above with:"
+      },
+      "editorialize": {
+        "message": "Editorialize"
+      },
+      "clear": {
+        "message": "Clear"
       }
 }
