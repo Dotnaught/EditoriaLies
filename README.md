@@ -27,4 +27,4 @@ Please use your editing powers responsibly.
 ## License
 
 This project is licensed under the GNU General Public
-License v2.0 - see the [LICENSE.md](LICENSE.md) file for details
+License v2.0 - see the [LICENSE.md](LICENSE) file for details
