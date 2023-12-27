@@ -20,7 +20,11 @@ Please use your editing powers responsibly.
 
 - **Thomas Claburn** - [Dotnaught](https://github.com/Dotnaught)
 
+## Based on 
+
+- **Stefan Van Damme's Chrome Extension Developer Template** - [stefanvd](https://github.com/stefanvd/browser-extension-starter-template/)
+
 ## License
 
 This project is licensed under the GNU General Public
-License v2 - see the [LICENSE.md](LICENSE.md) file for details
+License v2.0 - see the [LICENSE.md](LICENSE.md) file for details
